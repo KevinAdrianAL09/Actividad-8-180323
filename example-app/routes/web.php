@@ -21,6 +21,15 @@ Route::get('/{id}/edit', 'App\Http\Controllers\SuperheroController@edit');
 Route::put('/{id}', 'App\Http\Controllers\SuperheroController@update');
 Route::delete('/{id}', 'App\Http\Controllers\SuperheroController@destroy');
 
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->name('logout');
+
 
 
 Route::get('/', function () {
